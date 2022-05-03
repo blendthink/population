@@ -1,4 +1,4 @@
-package dev.blendthink.population.module
+package dev.blendthink.population.di
 
 import dev.blendthink.population.data.repository.PopulationRepository
 import dev.blendthink.population.data.repository.PopulationRepositoryImpl

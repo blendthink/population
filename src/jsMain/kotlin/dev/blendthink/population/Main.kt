@@ -1,7 +1,7 @@
 package dev.blendthink.population
 
 import androidx.compose.runtime.*
-import dev.blendthink.population.module.ModuleGenerator
+import dev.blendthink.population.di.ModuleGenerator
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
