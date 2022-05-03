@@ -1,3 +1,5 @@
+package dev.blendthink.population
+
 import androidx.compose.runtime.*
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
