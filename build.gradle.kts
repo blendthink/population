@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_EXPRESSION", "UNUSED_VARIABLE")
+
 import org.jetbrains.compose.compose
 
 plugins {
