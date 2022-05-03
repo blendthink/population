@@ -1,4 +1,4 @@
-package dev.blendthink.population.ui.component
+package dev.blendthink.population.ui.component.prefecture
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
