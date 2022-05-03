@@ -4,6 +4,7 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
     id("org.jetbrains.compose")
 }
 
@@ -36,9 +37,14 @@ kotlin {
     }
     sourceSets {
         val jsMain by getting {
+            val ktorVersion = "2.0.1"
             dependencies {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
+                implementation("io.ktor:ktor-client-js:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+                implementation("io.ktor:ktor-client-logging:$ktorVersion")
             }
         }
         val jsTest by getting {
