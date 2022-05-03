@@ -38,6 +38,7 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             val ktorVersion = "2.0.1"
+            val koinVersion = "3.1.6"
             dependencies {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
@@ -45,6 +46,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
+                implementation("io.insert-koin:koin-core:$koinVersion")
             }
         }
         val jsTest by getting {
