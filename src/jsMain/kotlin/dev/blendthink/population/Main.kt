@@ -1,11 +1,12 @@
 package dev.blendthink.population
 
-import androidx.compose.runtime.*
 import dev.blendthink.population.di.ModuleGenerator
+import dev.blendthink.population.ui.component.PageFooter
+import dev.blendthink.population.ui.component.PageMain
+import dev.blendthink.population.ui.style.AppStylesheet
 import kotlinx.browser.window
-import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.dom.*
-import org.jetbrains.compose.web.renderComposable
+import org.jetbrains.compose.web.css.Style
+import org.jetbrains.compose.web.renderComposableInBody
 import org.koin.core.context.startKoin
 import org.w3c.dom.url.URLSearchParams
 
@@ -20,29 +21,10 @@ fun main() {
         modules(appModules)
     }
 
-    var count: Int by mutableStateOf(0)
+    renderComposableInBody {
+        Style(AppStylesheet)
 
-    renderComposable(rootElementId = "root") {
-        Div({ style { padding(25.px) } }) {
-            Button(attrs = {
-                onClick { count -= 1 }
-            }) {
-                Text("-")
-            }
-
-            Span({ style { padding(15.px) } }) {
-                Text("$count")
-            }
-
-            Button(attrs = {
-                onClick { count += 1 }
-            }) {
-                Text("+")
-            }
-
-            Canvas {
-
-            }
-        }
+        PageMain()
+        PageFooter()
     }
 }
