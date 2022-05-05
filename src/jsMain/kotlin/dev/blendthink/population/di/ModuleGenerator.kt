@@ -1,6 +1,5 @@
 package dev.blendthink.population.di
 
-import androidx.compose.runtime.rememberCoroutineScope
 import dev.blendthink.population.data.repository.PopulationRepository
 import dev.blendthink.population.data.repository.PopulationRepositoryImpl
 import dev.blendthink.population.data.repository.PrefectureRepository
