@@ -13,7 +13,6 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
-import kotlinx.coroutines.MainScope
 import kotlinx.serialization.json.Json
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -54,7 +53,7 @@ class ModuleGenerator(
         }
 
         val notifierModule = module {
-            factory { MainContentNotifier(get(), get(), MainScope()) }
+            factory { MainContentNotifier(get()) }
         }
 
         return listOf(clientModule, repositoryModule, notifierModule)
