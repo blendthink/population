@@ -1,9 +1,11 @@
 package dev.blendthink.population.di
 
+import androidx.compose.runtime.rememberCoroutineScope
 import dev.blendthink.population.data.repository.PopulationRepository
 import dev.blendthink.population.data.repository.PopulationRepositoryImpl
 import dev.blendthink.population.data.repository.PrefectureRepository
 import dev.blendthink.population.data.repository.PrefectureRepositoryImpl
+import dev.blendthink.population.ui.content.MainContentNotifier
 import io.ktor.client.*
 import io.ktor.client.engine.js.*
 import io.ktor.client.plugins.*
@@ -12,6 +14,7 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import kotlinx.coroutines.MainScope
 import kotlinx.serialization.json.Json
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -51,6 +54,10 @@ class ModuleGenerator(
             single<PopulationRepository> { PopulationRepositoryImpl(get()) }
         }
 
-        return listOf(clientModule, repositoryModule)
+        val notifierModule = module {
+            factory { MainContentNotifier(get(), get(), MainScope()) }
+        }
+
+        return listOf(clientModule, repositoryModule, notifierModule)
     }
 }

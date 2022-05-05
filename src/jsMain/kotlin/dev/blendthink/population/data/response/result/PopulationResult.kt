@@ -12,7 +12,7 @@ import kotlinx.serialization.json.JsonNames
 data class PopulationResult(
     val boundaryYear: Int,
     @JsonNames("data")
-    val itemList: List<PopulationItem>,
+    val populationItems: List<PopulationItem>,
 )
 
 /**
@@ -22,7 +22,7 @@ data class PopulationResult(
 data class PopulationItem(
     val label: String,
     @JsonNames("data")
-    val dataList: List<PopulationData>
+    val populations: List<Population>
 )
 
 /**
@@ -31,7 +31,7 @@ data class PopulationItem(
  * @param rate 割合（総人口の場合は存在しない）
  */
 @Serializable
-data class PopulationData(
+data class Population(
     val year: Int,
     val value: Int,
     val rate: Double? = null,
