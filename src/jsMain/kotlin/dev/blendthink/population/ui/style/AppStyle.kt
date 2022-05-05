@@ -34,11 +34,10 @@ object AppStyle : StyleSheet() {
 
     val prefCheckboxes by style {
         width(100.vw)
+        padding(1.cssRem)
         display(DisplayStyle.Grid)
         gridTemplateColumns("repeat(auto-fit, minmax(5rem, 1fr))")
         gap(0.5.cssRem)
-        justifyContent(JustifyContent.Center)
-        padding(1.cssRem)
 
         type("li") style {
             display(DisplayStyle.Block)
