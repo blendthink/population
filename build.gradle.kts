@@ -47,6 +47,7 @@ kotlin {
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
                 implementation("io.insert-koin:koin-core:$koinVersion")
+                implementation(npm("highcharts", "10.1.0"))
             }
         }
         val jsTest by getting {
