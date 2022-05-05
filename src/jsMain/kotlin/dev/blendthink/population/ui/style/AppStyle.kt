@@ -2,7 +2,6 @@
 
 package dev.blendthink.population.ui.style
 
-import dev.blendthink.population.ui.attr.Classes
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 
@@ -15,19 +14,6 @@ object AppStyle : StyleSheet() {
         type("body") style {
             display(DisplayStyle.Flex)
             flexDirection(FlexDirection.Column)
-        }
-
-        className(Classes.prefCheckboxes) style {
-            width(100.vw)
-            display(DisplayStyle.Grid)
-            gridTemplateColumns("repeat(auto-fit, minmax(5rem, 1fr))")
-            gap(0.5.cssRem)
-            justifyContent(JustifyContent.Center)
-            padding(1.cssRem)
-
-            type("li") style {
-                display(DisplayStyle.Block)
-            }
         }
     }
 
@@ -44,6 +30,19 @@ object AppStyle : StyleSheet() {
         padding(1.cssRem, 0.cssRem, 1.cssRem, 0.cssRem)
         display(DisplayStyle.Flex)
         justifyContent(JustifyContent.Center)
+    }
+
+    val prefCheckboxes by style {
+        width(100.vw)
+        display(DisplayStyle.Grid)
+        gridTemplateColumns("repeat(auto-fit, minmax(5rem, 1fr))")
+        gap(0.5.cssRem)
+        justifyContent(JustifyContent.Center)
+        padding(1.cssRem)
+
+        type("li") style {
+            display(DisplayStyle.Block)
+        }
     }
 
     @OptIn(ExperimentalComposeWebApi::class)
