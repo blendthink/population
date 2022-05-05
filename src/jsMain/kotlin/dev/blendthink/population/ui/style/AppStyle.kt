@@ -1,11 +1,12 @@
-@file:Suppress("OPT_IN_IS_NOT_ENABLED")
-
 package dev.blendthink.population.ui.style
 
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 
 object AppStyle : StyleSheet() {
+    /**
+     * for fixing footer at the bottom
+     */
     init {
         type("html,body") style {
             height(100.vh)
@@ -44,6 +45,7 @@ object AppStyle : StyleSheet() {
         }
     }
 
+    @Suppress("OPT_IN_IS_NOT_ENABLED")
     @OptIn(ExperimentalComposeWebApi::class)
     private val scaleOutKeyFrame by keyframes {
         from {
