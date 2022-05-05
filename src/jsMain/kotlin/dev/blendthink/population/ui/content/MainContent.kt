@@ -5,7 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import dev.blendthink.population.ui.component.prefecture.PrefCheckboxes
-import dev.blendthink.population.ui.style.AppStylesheet.loading
+import dev.blendthink.population.ui.style.AppStyle.loading
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Span

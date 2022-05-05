@@ -6,7 +6,7 @@ import dev.blendthink.population.ui.attr.Classes
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 
-object AppStylesheet : StyleSheet() {
+object AppStyle : StyleSheet() {
     init {
         type("html,body") style {
             height(100.vh)

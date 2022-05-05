@@ -3,9 +3,9 @@ package dev.blendthink.population
 import dev.blendthink.population.di.ModuleGenerator
 import dev.blendthink.population.ui.component.Copyright
 import dev.blendthink.population.ui.content.MainContent
-import dev.blendthink.population.ui.style.AppStylesheet
-import dev.blendthink.population.ui.style.AppStylesheet.footer
-import dev.blendthink.population.ui.style.AppStylesheet.main
+import dev.blendthink.population.ui.style.AppStyle
+import dev.blendthink.population.ui.style.AppStyle.footer
+import dev.blendthink.population.ui.style.AppStyle.main
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.Style
 import org.jetbrains.compose.web.dom.Footer
@@ -26,7 +26,7 @@ fun main() {
     }
 
     renderComposableInBody {
-        Style(AppStylesheet)
+        Style(AppStyle)
 
         Main({ classes(main) }) {
             MainContent()
