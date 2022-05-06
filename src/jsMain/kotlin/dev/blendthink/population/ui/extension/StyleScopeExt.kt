@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package dev.blendthink.population.ui.util
+package dev.blendthink.population.ui.extension
 
 import org.jetbrains.compose.web.css.StyleScope
 

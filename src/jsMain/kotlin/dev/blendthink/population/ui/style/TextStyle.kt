@@ -2,8 +2,8 @@
 
 package dev.blendthink.population.ui.style
 
-import dev.blendthink.population.ui.util.TextTransform
-import dev.blendthink.population.ui.util.textTransform
+import dev.blendthink.population.ui.extension.TextTransform
+import dev.blendthink.population.ui.extension.textTransform
 import org.jetbrains.compose.web.css.*
 
 object TextStyle : StyleSheet() {
