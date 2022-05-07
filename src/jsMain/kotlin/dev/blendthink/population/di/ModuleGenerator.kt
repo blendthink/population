@@ -5,6 +5,7 @@ import dev.blendthink.population.data.repository.PopulationRepositoryImpl
 import dev.blendthink.population.data.repository.PrefectureRepository
 import dev.blendthink.population.data.repository.PrefectureRepositoryImpl
 import dev.blendthink.population.ui.content.MainContentNotifier
+import dev.blendthink.population.ui.content.graph.GraphContentNotifier
 import io.ktor.client.*
 import io.ktor.client.engine.js.*
 import io.ktor.client.plugins.*
@@ -54,6 +55,7 @@ class ModuleGenerator(
 
         val notifierModule = module {
             factory { MainContentNotifier(get()) }
+            factory { GraphContentNotifier(get()) }
         }
 
         return listOf(clientModule, repositoryModule, notifierModule)

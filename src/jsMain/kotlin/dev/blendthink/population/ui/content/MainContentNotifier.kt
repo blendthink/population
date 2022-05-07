@@ -4,7 +4,6 @@ import androidx.compose.runtime.mutableStateOf
 import dev.blendthink.population.data.converter.Result
 import dev.blendthink.population.data.repository.PrefectureRepository
 
-
 class MainContentNotifier(
     private val prefectureRepository: PrefectureRepository,
 ) {

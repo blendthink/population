@@ -68,4 +68,15 @@ object AppStyle : StyleSheet() {
             timingFunction(AnimationTimingFunction.EaseInOut)
         }
     }
+
+    val graphContent by style {
+        display(DisplayStyle.Flex)
+        flexDirection(FlexDirection.Column)
+        justifyContent(JustifyContent.Center)
+    }
+
+    val graph by style {
+        width(100.percent)
+        height(650.px)
+    }
 }
