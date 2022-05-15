@@ -1,5 +1,6 @@
 package dev.blendthink.population.ui.content.graph
 
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import dev.blendthink.population.data.converter.Result
 import dev.blendthink.population.data.repository.PopulationRepository
@@ -8,12 +9,13 @@ import dev.blendthink.population.data.response.result.Prefecture
 class GraphContentNotifier(
     private val populationRepository: PopulationRepository,
 ) {
-    private val dataList = mutableMapOf<Int, GraphData>()
-
+    val dataList = mutableStateMapOf<Int, GraphData>()
     val state = mutableStateOf<GraphContentState>(GraphContentState.Initialize)
 
     fun initialize(prefectures: List<Prefecture>) {
-        dataList.putAll(prefectures.associate { it.code to GraphData(it) })
+        prefectures.forEach {
+            dataList[it.code] = GraphData(it)
+        }
     }
 
     private suspend fun fetchPopulations(prefecture: Prefecture) {
@@ -43,9 +45,12 @@ class GraphContentNotifier(
             if (isEmptyData) {
                 fetchPopulations(prefecture)
             }
-            Graph.addData(dataList.getValue(prefecture.code))
+            val nonNullData = dataList.getValue(prefecture.code)
+            dataList[prefecture.code] = nonNullData.copy(isVisible = true)
+            Graph.addData(nonNullData)
         } else {
             data?.let {
+                dataList[prefecture.code] = it.copy(isVisible = false)
                 Graph.removeData(it)
             }
         }

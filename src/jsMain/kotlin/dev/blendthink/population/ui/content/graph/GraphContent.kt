@@ -1,6 +1,9 @@
 package dev.blendthink.population.ui.content.graph
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import dev.blendthink.population.data.response.result.Prefecture
 import dev.blendthink.population.ui.component.prefecture.PrefCheckboxes
 import dev.blendthink.population.ui.style.AppStyle.graph
@@ -15,11 +18,14 @@ fun GraphContent(
     notifier: GraphContentNotifier = GlobalContext.get().get(),
 ) {
     val state = remember { notifier.state }
+    val dataList = remember { notifier.dataList }
     val scope = rememberCoroutineScope()
 
-    GraphContent(prefectures, state.value) { prefecture, isChecked ->
-        scope.launch {
-            notifier.updateGraph(prefecture, isChecked)
+    GraphContent(dataList) { prefecture, isChecked ->
+        if (state.value !is GraphContentState.Loading) {
+            scope.launch {
+                notifier.updateGraph(prefecture, isChecked)
+            }
         }
     }
 
@@ -31,14 +37,13 @@ fun GraphContent(
 
 @Composable
 fun GraphContent(
-    prefectures: List<Prefecture>,
-    state: GraphContentState,
+    dataList: Map<Int, GraphData>,
     onChange: (prefecture: Prefecture, isChecked: Boolean) -> Unit,
 ) {
     Div({
         classes(graphContent)
     }) {
         Div({ id(graph) })
-        PrefCheckboxes(prefectures, onChange)
+        PrefCheckboxes(dataList, onChange)
     }
 }
