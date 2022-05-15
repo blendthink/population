@@ -1,14 +1,10 @@
 package dev.blendthink.population.ui.content.graph
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import dev.blendthink.population.data.response.result.Prefecture
 import dev.blendthink.population.ui.component.prefecture.PrefCheckboxes
 import dev.blendthink.population.ui.style.AppStyle.graph
 import dev.blendthink.population.ui.style.AppStyle.graphContent
-import dev.blendthink.population.ui.util.Highcharts
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.dom.Div
 import org.koin.core.context.GlobalContext
@@ -21,15 +17,15 @@ fun GraphContent(
     val state = remember { notifier.state }
     val scope = rememberCoroutineScope()
 
-    GraphContent(prefectures, state.value) { prefCode, isChecked ->
+    GraphContent(prefectures, state.value) { prefecture, isChecked ->
         scope.launch {
-            println("prefCode: $prefCode, isChecked: $isChecked")
+            notifier.updateGraph(prefecture, isChecked)
         }
     }
 
     LaunchedEffect(true) {
-        val options = js("{}")
-        Highcharts.chart(graph, options)
+        Graph.initialize()
+        notifier.initialize(prefectures)
     }
 }
 
@@ -37,7 +33,7 @@ fun GraphContent(
 fun GraphContent(
     prefectures: List<Prefecture>,
     state: GraphContentState,
-    onChange: (prefCode: Int, isChecked: Boolean) -> Unit,
+    onChange: (prefecture: Prefecture, isChecked: Boolean) -> Unit,
 ) {
     Div({
         classes(graphContent)

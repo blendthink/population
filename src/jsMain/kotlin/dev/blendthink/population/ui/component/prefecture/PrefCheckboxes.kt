@@ -8,7 +8,7 @@ import org.jetbrains.compose.web.dom.Ul
 @Composable
 fun PrefCheckboxes(
     prefectures: List<Prefecture>,
-    onChange: (prefCode: Int, isChecked: Boolean) -> Unit,
+    onChange: (prefecture: Prefecture, isChecked: Boolean) -> Unit,
 ) {
     Ul({
         classes(AppStyle.prefCheckboxes)

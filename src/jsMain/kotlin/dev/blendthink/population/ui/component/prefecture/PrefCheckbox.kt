@@ -1,9 +1,6 @@
 package dev.blendthink.population.ui.component.prefecture
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import dev.blendthink.population.data.response.result.Prefecture
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.dom.Input
@@ -14,17 +11,17 @@ import org.jetbrains.compose.web.dom.Text
 @Composable
 fun PrefCheckbox(
     prefecture: Prefecture,
-    onChange: (prefCode: Int, isChecked: Boolean) -> Unit,
+    onChange: (prefecture: Prefecture, isChecked: Boolean) -> Unit,
 ) {
     val checkboxPrefId = "checkbox-pref-${prefecture.code}"
-    var check: Boolean by mutableStateOf(false)
+    val check = remember { mutableStateOf(false) }
     Li {
         Input(InputType.Checkbox) {
             id(checkboxPrefId)
-            checked(check)
+            checked(check.value)
             onChange {
-                check = it.value
-                onChange(prefecture.code, check)
+                check.value = it.value
+                onChange(prefecture, it.value)
             }
         }
         Label(checkboxPrefId) {
