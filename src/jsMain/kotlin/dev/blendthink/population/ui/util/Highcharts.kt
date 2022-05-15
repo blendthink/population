@@ -11,6 +11,7 @@ external object Highcharts {
 fun LangOptions(): LangOptions = generateJsCode()
 fun Options(): Options = generateJsCode()
 fun TitleOptions(): TitleOptions = generateJsCode()
+fun SubTitleOptions(): SubTitleOptions = generateJsCode()
 fun TooltipOptions(): TooltipOptions = generateJsCode()
 fun LegendOptions(): LegendOptions = generateJsCode()
 fun ResponsiveRulesConditionOptions(): ResponsiveRulesConditionOptions = generateJsCode()
@@ -57,6 +58,12 @@ external interface LangOptions {
 }
 
 external interface TitleOptions {
+    var text: String?
+        get() = definedExternally
+        set(value) = definedExternally
+}
+
+external interface SubTitleOptions {
     var text: String?
         get() = definedExternally
         set(value) = definedExternally
@@ -148,6 +155,9 @@ external interface Options {
         get() = definedExternally
         set(value) = definedExternally
     var title: TitleOptions?
+        get() = definedExternally
+        set(value) = definedExternally
+    var subtitle: SubTitleOptions?
         get() = definedExternally
         set(value) = definedExternally
     var tooltip: TooltipOptions?

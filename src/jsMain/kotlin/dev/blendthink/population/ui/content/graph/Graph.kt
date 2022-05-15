@@ -15,6 +15,9 @@ object Graph {
             title = TitleOptions().apply {
                 text = "都道府県の総人口推移"
             }
+            subtitle = SubTitleOptions().apply {
+                text = "出典：RESAS（地域経済分析システム）"
+            }
             xAxis = XAxisOptions().apply {
                 title = XAxisTitleOptions().apply {
                     text = "年"
