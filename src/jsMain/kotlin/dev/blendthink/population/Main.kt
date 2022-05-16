@@ -6,6 +6,7 @@ import dev.blendthink.population.ui.content.MainContent
 import dev.blendthink.population.ui.style.AppStyle
 import dev.blendthink.population.ui.style.AppStyle.footer
 import dev.blendthink.population.ui.style.AppStyle.main
+import dev.blendthink.population.ui.style.TextStyle
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.Style
 import org.jetbrains.compose.web.dom.Footer
@@ -27,6 +28,7 @@ fun main() {
 
     renderComposableInBody {
         Style(AppStyle)
+        Style(TextStyle)
 
         Main({ classes(main) }) {
             MainContent()
