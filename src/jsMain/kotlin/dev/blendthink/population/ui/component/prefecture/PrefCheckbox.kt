@@ -3,6 +3,7 @@ package dev.blendthink.population.ui.component.prefecture
 import androidx.compose.runtime.*
 import dev.blendthink.population.data.response.result.Prefecture
 import dev.blendthink.population.ui.content.graph.GraphData
+import dev.blendthink.population.ui.style.TextStyle
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.dom.Input
 import org.jetbrains.compose.web.dom.Label
@@ -24,7 +25,9 @@ fun PrefCheckbox(
                 onChange(prefecture, it.value)
             }
         }
-        Label(checkboxPrefId) {
+        Label(checkboxPrefId, attrs = {
+            classes(TextStyle.subtitle2)
+        }) {
             Text(prefecture.name)
         }
     }
