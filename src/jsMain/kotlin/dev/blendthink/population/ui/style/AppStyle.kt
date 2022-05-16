@@ -34,7 +34,6 @@ object AppStyle : StyleSheet() {
     }
 
     val prefCheckboxes by style {
-        width(100.vw)
         padding(1.cssRem)
         display(DisplayStyle.Grid)
         gridTemplateColumns("repeat(auto-fit, minmax(5rem, 1fr))")
@@ -70,13 +69,12 @@ object AppStyle : StyleSheet() {
     }
 
     val graphContent by style {
+        width(90.vw)
         display(DisplayStyle.Flex)
         flexDirection(FlexDirection.Column)
         justifyContent(JustifyContent.Center)
+        paddingTop(1.cssRem)
     }
 
-    val graph by style {
-        width(100.percent)
-        height(650.px)
-    }
+    val graph by style {}
 }
