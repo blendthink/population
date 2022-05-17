@@ -18,6 +18,19 @@ object AppStyle : StyleSheet() {
             display(DisplayStyle.Flex)
             flexDirection(FlexDirection.Column)
         }
+
+        type("code") style {
+            display(DisplayStyle.InlineBlock)
+            padding(0.1.em, 0.25.em, 0.1.em, 0.25.em)
+            color(Color("#444"))
+            backgroundColor(Color("#e7edf3"))
+            borderRadius(4.px)
+            border {
+                width = 1.px
+                style = LineStyle.Solid
+                color = Color("#d6dde4")
+            }
+        }
     }
 
     val main by style {
@@ -32,6 +45,11 @@ object AppStyle : StyleSheet() {
         width(100.vw)
         padding(1.cssRem, 0.cssRem, 1.cssRem, 0.cssRem)
         display(DisplayStyle.Flex)
+        justifyContent(JustifyContent.Center)
+    }
+
+    val error by style {
+        padding(1.cssRem)
         justifyContent(JustifyContent.Center)
     }
 

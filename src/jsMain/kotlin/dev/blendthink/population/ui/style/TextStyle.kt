@@ -74,7 +74,7 @@ object TextStyle : StyleSheet() {
     val body2 by style {
         fontFamily("Robot")
         fontWeight("normal")
-        fontSize(1.5.cssRem)
+        fontSize(0.875.cssRem)
         letterSpacing(0.015625.cssRem)
     }
 
