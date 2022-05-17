@@ -3,6 +3,8 @@ package dev.blendthink.population.ui.content
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import dev.blendthink.population.data.response.ResasForbiddenException
+import dev.blendthink.population.ui.content.error.RequireApiKey
 import dev.blendthink.population.ui.content.graph.GraphContent
 import dev.blendthink.population.ui.style.AppStyle.loading
 import org.jetbrains.compose.web.dom.Div
@@ -34,8 +36,14 @@ fun MainContent(
             GraphContent(state.prefectures)
         }
         is MainContentState.Failure -> {
-            Span {
-                Text(state.exception.toString())
+            val exception = state.exception
+            if (exception is ResasForbiddenException) {
+                // API key is missing in the request header or invalid
+                RequireApiKey()
+            } else {
+                Span {
+                    Text(exception.toString())
+                }
             }
         }
     }
