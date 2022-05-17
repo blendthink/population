@@ -1,5 +1,7 @@
 package dev.blendthink.population.ui.style
 
+import dev.blendthink.population.ui.extension.Float
+import dev.blendthink.population.ui.extension.float
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 
@@ -38,9 +40,37 @@ object AppStyle : StyleSheet() {
         display(DisplayStyle.Grid)
         gridTemplateColumns("repeat(auto-fit, minmax(5rem, 1fr))")
         gap(0.5.cssRem)
+    }
 
-        type("li") style {
+    val prefCheckbox by style {
+        display(DisplayStyle.Block)
+
+        type("label") style {
+            cursor("pointer")
+            width(100.percent)
             display(DisplayStyle.Block)
+            float(Float.LEFT)
+            padding(0.4.cssRem, 0.6.cssRem, 0.4.cssRem, 0.6.cssRem)
+            border {
+                width = 1.px
+                style = LineStyle.Solid
+                color = Color.gainsboro
+            }
+            borderRadius(10.px)
+            textAlign("center")
+            property("transition", "background-color .5s")
+        }
+
+        type("label:hover") style {
+            backgroundColor(Color.whitesmoke)
+        }
+
+        type("input") style {
+            display(DisplayStyle.None)
+        }
+
+        type("input:checked + label") style {
+            backgroundColor(Color.gainsboro)
         }
     }
 

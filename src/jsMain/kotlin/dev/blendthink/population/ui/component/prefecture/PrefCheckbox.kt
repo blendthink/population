@@ -3,6 +3,7 @@ package dev.blendthink.population.ui.component.prefecture
 import androidx.compose.runtime.*
 import dev.blendthink.population.data.response.result.Prefecture
 import dev.blendthink.population.ui.content.graph.GraphData
+import dev.blendthink.population.ui.style.AppStyle
 import dev.blendthink.population.ui.style.TextStyle
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.dom.Input
@@ -17,7 +18,9 @@ fun PrefCheckbox(
 ) {
     val prefecture = data.value.prefecture
     val checkboxPrefId = "checkbox-pref-${prefecture.code}"
-    Li {
+    Li({
+        classes(AppStyle.prefCheckbox)
+    }) {
         Input(InputType.Checkbox) {
             id(checkboxPrefId)
             checked(data.value.isVisible)
