@@ -8,6 +8,7 @@ import dev.blendthink.population.data.response.ResasErrorResponse
 import dev.blendthink.population.data.response.ResasForbiddenException
 import dev.blendthink.population.ui.content.MainContentNotifier
 import dev.blendthink.population.ui.content.graph.GraphContentNotifier
+import dev.blendthink.population.ui.util.Environment
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.js.*
@@ -63,9 +64,11 @@ class ModuleGenerator(
                             }
                         }
                     }
-                    install(Logging) {
-                        logger = Logger.SIMPLE
-                        level = LogLevel.ALL
+                    if (Environment.isDevelopment) {
+                        install(Logging) {
+                            logger = Logger.SIMPLE
+                            level = LogLevel.ALL
+                        }
                     }
                     expectSuccess = true
                 }
