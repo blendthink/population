@@ -13,19 +13,23 @@ fun RequireApiKey() {
         classes(AppStyle.error, TextStyle.body2)
     }) {
         P {
-            Text("Please issue the API key for ")
+            Text("このサイトでは ")
             A("https://opendata.resas-portal.go.jp/docs/api/v1/index.html", attrs = {
                 target(ATarget.Blank)
             }) {
                 Text("RESAS-API")
             }
-            Text(" and set it in the URL parameter.")
+            Text(" を利用しています。")
+        }
+
+        P {
+            Text("API キーを発行して、URL パラメーターに設定してください。")
         }
 
         Br()
 
         P {
-            Text("Example: ")
+            Text("例: ")
             Code({
                 classes(TextStyle.caption)
             }) {
