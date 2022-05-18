@@ -4,8 +4,6 @@ import dev.blendthink.population.di.ModuleGenerator
 import dev.blendthink.population.ui.component.Copyright
 import dev.blendthink.population.ui.content.MainContent
 import dev.blendthink.population.ui.style.AppStyle
-import dev.blendthink.population.ui.style.AppStyle.footer
-import dev.blendthink.population.ui.style.AppStyle.main
 import dev.blendthink.population.ui.style.TextStyle
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.Style
@@ -30,11 +28,11 @@ fun main() {
         Style(AppStyle)
         Style(TextStyle)
 
-        Main({ classes(main) }) {
+        Main({ classes(AppStyle.main) }) {
             MainContent()
         }
 
-        Footer({ classes(footer) }) {
+        Footer({ classes(AppStyle.footer) }) {
             Copyright()
         }
     }

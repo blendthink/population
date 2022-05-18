@@ -6,8 +6,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import dev.blendthink.population.data.response.result.Prefecture
 import dev.blendthink.population.ui.component.prefecture.PrefCheckboxes
-import dev.blendthink.population.ui.style.AppStyle.graph
-import dev.blendthink.population.ui.style.AppStyle.graphContent
+import dev.blendthink.population.ui.style.AppStyle
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.dom.Div
 import org.koin.core.context.GlobalContext
@@ -41,9 +40,9 @@ fun GraphContent(
     onChange: (prefecture: Prefecture, isChecked: Boolean) -> Unit,
 ) {
     Div({
-        classes(graphContent)
+        classes(AppStyle.graphContent)
     }) {
-        Div({ id(graph) })
+        Div({ id(AppStyle.graph) })
         PrefCheckboxes(dataList, onChange)
     }
 }

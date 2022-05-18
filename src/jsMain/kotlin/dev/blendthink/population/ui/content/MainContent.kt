@@ -6,7 +6,7 @@ import androidx.compose.runtime.remember
 import dev.blendthink.population.data.response.ResasForbiddenException
 import dev.blendthink.population.ui.content.error.RequireApiKey
 import dev.blendthink.population.ui.content.graph.GraphContent
-import dev.blendthink.population.ui.style.AppStyle.loading
+import dev.blendthink.population.ui.style.AppStyle
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
@@ -30,7 +30,7 @@ fun MainContent(
     when (state) {
         is MainContentState.Initialize,
         is MainContentState.Loading -> {
-            Div({ classes(loading) })
+            Div({ classes(AppStyle.loading) })
         }
         is MainContentState.Success -> {
             GraphContent(state.prefectures)
