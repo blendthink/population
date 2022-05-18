@@ -1,6 +1,9 @@
 ## 概要
 
-都道府県の総人口推移をグラフ表示する SPA
+都道府県の総人口推移をグラフ表示する Single Page Application
+
+株式会社ゆめみの [フロントエンドコーディング試験](https://notion.yumemi.co.jp/0e9ef27b55704d7882aab55cc86c999d) を
+Jetpack Compose for Web で取り組んでみたもの
 
 ![img](docs/res/demo.gif)
 
