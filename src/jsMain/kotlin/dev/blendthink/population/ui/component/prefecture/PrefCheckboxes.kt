@@ -14,8 +14,9 @@ fun PrefCheckboxes(
     Ul({
         classes(AppStyle.prefCheckboxes)
     }) {
-        for (data in dataList) {
-            PrefCheckbox(data, onChange)
+        val sortedEntries = dataList.entries.sortedBy { it.key }
+        sortedEntries.forEach {
+            PrefCheckbox(it, onChange)
         }
     }
 }
