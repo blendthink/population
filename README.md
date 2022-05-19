@@ -33,7 +33,7 @@ https://blendthink.github.io/population/?apiKey=xxx
 - macOS Monterey 12.3.1
 - IntelliJ IDEA 2022.1.1 (Ultimate Edition)
 
-### 2. IntelliJ　にプラグインをインストールする
+### 2. IntelliJ IDEA にプラグインをインストールする
 
 - Native Debugging Support: com.intellij.nativeDebug (221.5080.218)
 - Kotlin/JS Inspection Pack: org.jetbrains.kotlin-js-inspection-pack-plugin (0.0.9)
@@ -42,7 +42,7 @@ https://blendthink.github.io/population/?apiKey=xxx
 
 ### 3. Gradle タスクを実行してブラウザで確認する
 
-IntelliJ の右の Gradle タブを開き、population → Tasks → kotlin browser → jsBrowserRun を実行して、ブラウザで確認する
+IntelliJ IDEA の右の Gradle タブを開き、population → Tasks → kotlin browser → jsBrowserRun を実行して、ブラウザで確認する
 
 ```
 http://localhost:8080/?apiKey=xxx
