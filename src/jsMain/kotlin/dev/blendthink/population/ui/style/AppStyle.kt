@@ -1,7 +1,6 @@
 package dev.blendthink.population.ui.style
 
-import dev.blendthink.population.ui.extension.Float
-import dev.blendthink.population.ui.extension.float
+import dev.blendthink.population.ui.extension.*
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 
@@ -10,25 +9,22 @@ object AppStyle : StyleSheet() {
      * for fixing footer at the bottom
      */
     init {
-        type("html,body") style {
-            height(100.vh)
-        }
-
-        type("body") style {
+        tag(Tag.Body) style {
             display(DisplayStyle.Flex)
             flexDirection(FlexDirection.Column)
+            minHeight(100.vh)
         }
 
-        type("code") style {
+        tag(Tag.Code) style {
             display(DisplayStyle.InlineBlock)
-            padding(0.1.em, 0.25.em, 0.1.em, 0.25.em)
-            color(Color("#444"))
-            backgroundColor(Color("#e7edf3"))
+            padding(0.1.cssRem, 0.25.cssRem)
+            color(Color.dimgray)
+            backgroundColor(Color.whitesmoke)
             borderRadius(4.px)
             border {
                 width = 1.px
                 style = LineStyle.Solid
-                color = Color("#d6dde4")
+                color = Color.gainsboro
             }
         }
     }
@@ -43,7 +39,7 @@ object AppStyle : StyleSheet() {
 
     val footer by style {
         width(100.vw)
-        padding(1.cssRem, 0.cssRem, 1.cssRem, 0.cssRem)
+        padding(1.cssRem, 0.cssRem)
         display(DisplayStyle.Flex)
         justifyContent(JustifyContent.Center)
     }
@@ -63,8 +59,8 @@ object AppStyle : StyleSheet() {
     val prefCheckbox by style {
         display(DisplayStyle.Block)
 
-        type("label") style {
-            cursor("pointer")
+        tag(Tag.Label) style {
+            cursor(Cursor.Pointer)
             width(100.percent)
             display(DisplayStyle.Block)
             float(Float.LEFT)
@@ -75,19 +71,19 @@ object AppStyle : StyleSheet() {
                 color = Color.gainsboro
             }
             borderRadius(10.px)
-            textAlign("center")
-            property("transition", "background-color .5s")
+            textAlign(TextAlign.Center)
+            transition("background-color", 0.5.s)
         }
 
-        type("label:hover") style {
+        tag(Tag.Label) + hover style {
             backgroundColor(Color.whitesmoke)
         }
 
-        type("input") style {
+        tag(Tag.Input) style {
             display(DisplayStyle.None)
         }
 
-        type("input:checked + label") style {
+        adjacent(tag(Tag.Input) + checked, tag(Tag.Label)) style {
             backgroundColor(Color.gainsboro)
         }
     }
